@@ -25,7 +25,7 @@ type DB struct {
 	collection string
 }
 
-// UserModel is what we are storing in the database
+// UserModel representation of data in database
 type UserModel struct {
 	ID       primitive.ObjectID `bson:"_id" json:"_id,omitempty"`
 	Fname    string             `json:"fname"`
@@ -62,7 +62,7 @@ func ConnectMongo() *DB {
 	}
 }
 
-// CreateUser to add to database
+// CreateUser fills struct values for insertion in database
 func CreateUser(input *model.RegisterInput) *UserModel {
 	return &UserModel{
 		ID:       primitive.NewObjectID(),
