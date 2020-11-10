@@ -1,0 +1,33 @@
+type Token {
+  jwt: String!
+}
+
+type User {
+  _id: String!
+  username: String!
+}
+
+input RegisterInput {
+  fname: String!
+  lname: String!
+  email: String!
+  username: String!
+  password: String!
+  confirmPassword: String!
+}
+
+input Authenticate {
+  email: String!
+  password: String!
+}
+
+input RefreshToken {
+  oldToken: String!
+}
+
+
+type Mutation {
+  register(registerInput: RegisterInput): Token!
+  userAuth(auth: Authenticate): Token!
+  refreshToken(token: RefreshToken): Token!
+}
